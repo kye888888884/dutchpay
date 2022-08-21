@@ -12,9 +12,29 @@ const output = {
     },
 }
 
+const users = {
+    id: ["hi", "hello", "kyh"],
+    pass: ["123", "1234", "321"]
+}
+
 const process = {
     login: (req, res) => {
-        console.log(req.body);
+        const id = req.body.id,
+            pass = req.body.pass;
+        
+        if (users.id.includes(id)) {
+            const idx = users.id.indexOf(id);
+            if (users.pass[idx] === pass) {
+                return res.json({
+                    success: true,
+                })
+            }
+        }
+
+        return res.json({
+            success: false,
+            msg: "로그인 실패"
+        })
     },
 }
 

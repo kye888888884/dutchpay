@@ -5,7 +5,7 @@ const home = (req, res) => {
 };
 
 const dutch = (req, res) => {
-    res.render("home/dutch");
+    res.render("dutch/dutch");
 }
 
 module.exports = {

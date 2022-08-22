@@ -10,8 +10,8 @@ registerBtn.addEventListener("click", login);
 
 function login() {
     if (!id.value) return alert("아이디를 입력해주세요.")
-    if (pass !== confirmPass) return alert("비밀번호가 일치하지 않습니다.");
-    
+    if (pass.value !== confirmPass.value) return alert("비밀번호가 일치하지 않습니다.");
+
     const req = {
         id: id.value,
         name: name.value,

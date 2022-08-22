@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>정산닷컴</title>
+    <style>
+        @import url("css/login/style.css");
+    </style>
 </head>
 <body>
-    <input id="id" type="text" placeholder="아이디"><br>
-    <input id="pass" type="text" placeholder="비밀번호"><br>
-    <button>로그인</button>
+    <div class="login-page">
+        <div class="form">
+          <form class="register-form">
+            <input type="text" placeholder="아이디"/>
+            <input type="password" placeholder="비밀번호"/>
+            <input type="text" placeholder="이메일 주소"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+          </form>
+          <form class="login-form">
+            <input id="id" type="text" placeholder="아이디"/>
+            <input id="pass" type="password" placeholder="비밀번호"/>
+            <button id="login">login</button>
+            <p class="message">Not registered? <a href="/register">Create an account</a></p>
+          </form>
+        </div>
+      </div>
 
     <script src="js/login/login.js"></script>
 </body>

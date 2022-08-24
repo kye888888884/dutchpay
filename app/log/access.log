@@ -1,0 +1,12 @@
+[0mGET /login [36m304[0m 9.527 ms - -[0m
+[0mGET /login [36m304[0m 3.019 ms - -[0m
+[0mGET /register [36m304[0m 1.675 ms - -[0m
+GET Tue, 23 Aug 2022 13:21:44 GMT
+GET Tue, 23 Aug 2022 13:25:26 GMT
+GET Tue, 23 Aug 2022 13:25:29 GMT
+GET /login 304 - - 9.294 ms
+GET /register 304 - - 1.473 ms
+GET /login 304 - - 1.494 ms
+::1 - - [23/Aug/2022:13:26:16 +0000] "GET /login HTTP/1.1" 304 -
+::1 - - [23/Aug/2022:13:26:17 +0000] "GET /register HTTP/1.1" 304 -
+::1 - - [23/Aug/2022:13:26:18 +0000] "GET /login HTTP/1.1" 304 -

@@ -69,3 +69,82 @@
 <jungsan> info[2022-08-26 12:00:05]: GET /login 200 "로그인 화면으로 이동"
 <jungsan> info[2022-08-26 12:00:05]: GET /login 200 "로그인 화면으로 이동"
 <jungsan> info[2022-08-26 12:00:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:08:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:10:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:13:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:15:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:15:05]: POST /login  Response: false 아이디가 존재하지 않습니다.
+<jungsan> info[2022-08-26 13:16:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:16:05]: POST /login  Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:16:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:16:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:17:05]: POST /login  Response: false 아이디가 존재하지 않습니다.
+<jungsan> info[2022-08-26 13:17:05]: POST /login  Response: true undefined
+<jungsan> info[2022-08-26 13:17:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:17:05]: POST /login  Response: true undefined
+<jungsan> info[2022-08-26 13:17:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:17:05]: POST /login  Response: true undefined
+<jungsan> info[2022-08-26 13:17:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:19:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:19:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:19:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:19:05]: POST /login 200 Response: false 아이디가 존재하지 않습니다.
+<jungsan> info[2022-08-26 13:20:05]: POST /login 200 Response: false 아이디가 존재하지 않습니다.
+<jungsan> info[2022-08-26 13:20:05]: POST /login 200 Response: false 아이디가 존재하지 않습니다.
+<jungsan> info[2022-08-26 13:20:05]: POST /login 200 Response: false 비밀번호가 틀렸습니다.
+<jungsan> info[2022-08-26 13:20:05]: POST /login 200 Response: true undefined
+<jungsan> info[2022-08-26 13:20:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:21:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:21:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:21:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:21:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:23:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:24:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:28:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:28:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:28:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:28:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:28:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:28:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:28:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:28:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:28:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:28:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:28:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:28:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:28:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:28:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:28:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:29:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:29:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:29:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:29:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:29:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:29:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:29:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:29:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:29:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:29:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:29:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:29:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:29:05]: POST /login 400 Response: true Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:29:05]: GET / 200 "홈 화면으로 이동"
+<jungsan> info[2022-08-26 13:30:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:30:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:30:05]: POST /login 400 Response: false Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:35:05]: POST /login 400 Response: false Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:35:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:35:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:35:05]: POST /login 200 Response: false 아이디가 존재하지 않습니다.
+<jungsan> info[2022-08-26 13:37:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:37:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:37:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:37:05]: POST /login 400 Response: false Error: ER_NO_SUCH_TABLE: Table 'jungsan.abc' doesn't exist
+<jungsan> info[2022-08-26 13:37:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:37:05]: GET /login 200 "로그인 화면으로 이동"
+<jungsan> info[2022-08-26 13:37:05]: POST /login 200 Response: false 아이디가 존재하지 않습니다.
+<jungsan> info[2022-08-26 13:37:05]: POST /login 200 Response: false 비밀번호가 틀렸습니다.
+<jungsan> info[2022-08-26 13:42:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:42:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:43:05]: 3000포트에서 서버가 가동되었습니다.
+<jungsan> info[2022-08-26 13:44:05]: 3000포트에서 서버가 가동되었습니다.

@@ -6,9 +6,9 @@ const id = document.querySelector("#id"),
     confirmPass = document.querySelector("#confirm-pass"),
     registerBtn = document.querySelector("#button");
 
-registerBtn.addEventListener("click", login);
+registerBtn.addEventListener("click", register);
 
-function login() {
+function register() {
     if (!id.value) return alert("아이디를 입력해주세요.")
     if (pass.value !== confirmPass.value) return alert("비밀번호가 일치하지 않습니다.");
 
@@ -30,6 +30,7 @@ function login() {
         if (res.success) {
             location.href = "/login";
         } else {
+            if (res.err) return alert(res.err);
             alert(res.msg);
         }
     })

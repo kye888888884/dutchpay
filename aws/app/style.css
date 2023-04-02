@@ -8,6 +8,12 @@ body {
     font-family: "Gowun Dodum", sans-serif;
     margin: 20px;
 }
+.result-container {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
 
 input,
 button {

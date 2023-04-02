@@ -9,7 +9,7 @@ window.onload = () => {
     app.resize();
 };
 
-const font = "Gowun Dodum";
+// const font = "Gowun Dodum";
 var nameBoxSize = 50;
 var nameBoxNumber = 3;
 
@@ -129,7 +129,7 @@ function drawResult(arrName, moneyData) {
     app.coords = [];
     for (let i = 0; i < moneyData.n; i++) {
         let colorH = (i / moneyData.n) * 255 + 25;
-        app.colors.push(`hsl(${colorH}, 80%, 40%)`);
+        app.colors.push(`hsl(${Math.floor(colorH)}, 80%, 40%)`);
 
         let x = Math.cos(((-i / moneyData.n) * 2 - 0.5) * Math.PI);
         let y = Math.sin(((-i / moneyData.n) * 2 - 0.5) * Math.PI);
@@ -151,6 +151,8 @@ function drawResult(arrName, moneyData) {
     }
 
     // create moenylines
+    var isLean = $("#money-lean").is(":checked");
+    var idx = 0;
     moneyData.getMessageToSend().forEach((value) => {
         let index1 = arrName.indexOf(value[0]);
         let index2 = arrName.indexOf(value[1]);
@@ -165,10 +167,14 @@ function drawResult(arrName, moneyData) {
                     value[2],
                     app,
                     index1,
-                    index2
+                    index2,
+                    idx,
+                    isLean
                 )
             );
         }
+
+        idx++;
     });
 
     scrollSmoothToCanvas();
@@ -252,322 +258,322 @@ function scrollSmoothToCanvas() {
 }
 
 // Draw
-class App {
-    constructor() {
-        this.canvas = document.querySelector("canvas");
-        this.ctx = this.canvas.getContext("2d");
+// class App {
+//     constructor() {
+//         this.canvas = document.querySelector("canvas");
+//         this.ctx = this.canvas.getContext("2d");
 
-        // window.addEventListener('resize', this.resize.bind(this), false);
-        window.requestAnimationFrame(this.animate.bind(this));
+//         // window.addEventListener('resize', this.resize.bind(this), false);
+//         window.requestAnimationFrame(this.animate.bind(this));
 
-        this.nameBoxes = [];
-        this.moneyLines = [];
-        this.colors = [];
-        this.coords = [];
-        this.preWindowWidth = 0;
-        this.preWindowHeight = 0;
+//         this.nameBoxes = [];
+//         this.moneyLines = [];
+//         this.colors = [];
+//         this.coords = [];
+//         this.preWindowWidth = 0;
+//         this.preWindowHeight = 0;
 
-        this.canvasSize = 0.9;
-    }
+//         this.canvasSize = 0.9;
+//     }
 
-    resize() {
-        this.stageWidth = $(window).width() * this.canvasSize;
-        this.stageHeight = $(window).height();
+//     resize() {
+//         this.stageWidth = $(window).width() * this.canvasSize;
+//         this.stageHeight = $(window).height();
 
-        this.canvas.width = this.stageWidth;
-        this.canvas.height = this.stageHeight;
+//         this.canvas.width = this.stageWidth;
+//         this.canvas.height = this.stageHeight;
 
-        this.ctx.scale(1, 1);
+//         this.ctx.scale(1, 1);
 
-        // set elements's center
-        this.moneyLines.forEach((moneyLine) => {
-            moneyLine.resize(this);
-        });
+//         // set elements's center
+//         this.moneyLines.forEach((moneyLine) => {
+//             moneyLine.resize(this);
+//         });
 
-        this.nameBoxes.forEach((nameBox) => {
-            nameBox.resize(this);
-        });
+//         this.nameBoxes.forEach((nameBox) => {
+//             nameBox.resize(this);
+//         });
 
-        nameBoxSize =
-            40 + (this.stageWidth - 200) / 60 - (nameBoxNumber - 3) * 3;
-    }
+//         nameBoxSize =
+//             40 + (this.stageWidth - 200) / 60 - (nameBoxNumber - 3) * 3;
+//     }
 
-    animate(t) {
-        if (
-            this.preWindowWidth != $(window).width() * this.canvasSize ||
-            this.preWindowHeight != $(window).height()
-        ) {
-            this.preWindowWidth = $(window).width() * this.canvasSize;
-            this.preWindowHeight = $(window).height();
-            this.resize();
-        }
+//     animate(t) {
+//         if (
+//             this.preWindowWidth != $(window).width() * this.canvasSize ||
+//             this.preWindowHeight != $(window).height()
+//         ) {
+//             this.preWindowWidth = $(window).width() * this.canvasSize;
+//             this.preWindowHeight = $(window).height();
+//             this.resize();
+//         }
 
-        window.requestAnimationFrame(this.animate.bind(this));
+//         window.requestAnimationFrame(this.animate.bind(this));
 
-        this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
+//         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
-        // draw elements
-        this.moneyLines.forEach((moneyLine) => {
-            moneyLine.drawLine(this.ctx);
-        });
+//         // draw elements
+//         this.moneyLines.forEach((moneyLine) => {
+//             moneyLine.drawLine(this.ctx);
+//         });
 
-        this.nameBoxes.forEach((nameBox) => {
-            nameBox.draw(this.ctx);
-        });
+//         this.nameBoxes.forEach((nameBox) => {
+//             nameBox.draw(this.ctx);
+//         });
 
-        this.moneyLines.forEach((moneyLine) => {
-            moneyLine.drawMoney(this.ctx);
-        });
-    }
-}
+//         this.moneyLines.forEach((moneyLine) => {
+//             moneyLine.drawMoney(this.ctx);
+//         });
+//     }
+// }
 
-class moneyLine {
-    constructor(x1, y1, x2, y2, money, app, index1, index2) {
-        // apply param of constructor
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.money = money;
-        this.app = app;
-        this.index1 = index1; // for setting colors
-        this.index2 = index2;
+// class moneyLine {
+//     constructor(x1, y1, x2, y2, money, app, index1, index2) {
+//         // apply param of constructor
+//         this.x1 = x1;
+//         this.y1 = y1;
+//         this.x2 = x2;
+//         this.y2 = y2;
+//         this.money = money;
+//         this.app = app;
+//         this.index1 = index1; // for setting colors
+//         this.index2 = index2;
 
-        // line
-        this.x2line = 0;
-        this.y2line = 0;
+//         // line
+//         this.x2line = 0;
+//         this.y2line = 0;
 
-        // arrow
-        this.x2arrow = 0;
-        this.y2arrow = 0;
-        this.angle = 0;
-        this.size = 0;
-        this.height = 0;
+//         // arrow
+//         this.x2arrow = 0;
+//         this.y2arrow = 0;
+//         this.angle = 0;
+//         this.size = 0;
+//         this.height = 0;
 
-        this.distance = 150;
-        this.cx = 0;
-        this.cy = 0;
-        this.resize(app);
+//         this.distance = 150;
+//         this.cx = 0;
+//         this.cy = 0;
+//         this.resize(app);
 
-        this.color1 = "#ffffff";
-        this.color2 = "#000000";
-        this.setColor(app);
+//         this.color1 = "#ffffff";
+//         this.color2 = "#000000";
+//         this.setColor(app);
 
-        this.dashOffset = 0;
-    }
+//         this.dashOffset = 0;
+//     }
 
-    drawLine(ctx) {
-        var x1 = this.x1 + this.cx;
-        var y1 = this.y1 + this.cy;
-        var x2 = this.x2 + this.cx;
-        var y2 = this.y2 + this.cy;
-        var mx = (x1 + x2) * 0.5;
-        var my = (y1 + y2) * 0.5;
+//     drawLine(ctx) {
+//         var x1 = this.x1 + this.cx;
+//         var y1 = this.y1 + this.cy;
+//         var x2 = this.x2 + this.cx;
+//         var y2 = this.y2 + this.cy;
+//         var mx = (x1 + x2) * 0.5;
+//         var my = (y1 + y2) * 0.5;
 
-        // draw line
-        var gradient = ctx.createLinearGradient(x1, y1, x2, y2);
-        gradient.addColorStop(0, this.color1);
-        gradient.addColorStop(1, this.color2);
+//         // draw line
+//         var gradient = ctx.createLinearGradient(x1, y1, x2, y2);
+//         gradient.addColorStop(0, this.color1);
+//         gradient.addColorStop(1, this.color2);
 
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = this.size * 0.2;
-        ctx.setLineDash([15, 5]);
-        ctx.lineDashOffset = this.dashOffset;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(this.x2line + this.cx, this.y2line + this.cy);
-        ctx.stroke();
+//         ctx.strokeStyle = gradient;
+//         ctx.lineWidth = this.size * 0.2;
+//         ctx.setLineDash([15, 5]);
+//         ctx.lineDashOffset = this.dashOffset;
+//         ctx.beginPath();
+//         ctx.moveTo(x1, y1);
+//         ctx.lineTo(this.x2line + this.cx, this.y2line + this.cy);
+//         ctx.stroke();
 
-        this.dashOffset -= 0.25;
+//         this.dashOffset -= 0.25;
 
-        // draw arrow
-        ctx.fillStyle = this.color2;
-        ctx.translate(this.x2arrow + this.cx, this.y2arrow + this.cy);
-        ctx.rotate(this.angle);
-        ctx.beginPath();
-        ctx.moveTo(-this.size, -this.height);
-        ctx.lineTo(0, 0);
-        ctx.lineTo(-this.size, this.height);
-        ctx.closePath();
-        ctx.fill();
-        ctx.setTransform(1, 0, 0, 1, 0, 0);
-    }
+//         // draw arrow
+//         ctx.fillStyle = this.color2;
+//         ctx.translate(this.x2arrow + this.cx, this.y2arrow + this.cy);
+//         ctx.rotate(this.angle);
+//         ctx.beginPath();
+//         ctx.moveTo(-this.size, -this.height);
+//         ctx.lineTo(0, 0);
+//         ctx.lineTo(-this.size, this.height);
+//         ctx.closePath();
+//         ctx.fill();
+//         ctx.setTransform(1, 0, 0, 1, 0, 0);
+//     }
 
-    drawMoney(ctx) {
-        var mx = this.x1 * 0.3 + this.x2 * 0.7 + this.cx;
-        var my = this.y1 * 0.3 + this.y2 * 0.7 + this.cy;
+//     drawMoney(ctx) {
+//         var mx = this.x1 * 0.3 + this.x2 * 0.7 + this.cx;
+//         var my = this.y1 * 0.3 + this.y2 * 0.7 + this.cy;
 
-        // draw money background
-        ctx.font = `bold ${nameBoxSize * 0.5}px Gowun Dodum`;
-        ctx.textBaseline = "middle";
-        ctx.strokeStyle = "#ffffff";
-        ctx.setLineDash([]);
-        ctx.textAlign = "center";
-        ctx.lineWidth = nameBoxSize * 0.1;
-        ctx.strokeText(this.money, mx, my + 1);
+//         // draw money background
+//         ctx.font = `bold ${nameBoxSize * 0.5}px Gowun Dodum`;
+//         ctx.textBaseline = "middle";
+//         ctx.strokeStyle = "#ffffff";
+//         ctx.setLineDash([]);
+//         ctx.textAlign = "center";
+//         ctx.lineWidth = nameBoxSize * 0.1;
+//         ctx.strokeText(this.money, mx, my + 1);
 
-        // draw money
-        ctx.font = `bold ${nameBoxSize * 0.5}px Gowun Dodum`;
-        ctx.fillStyle = "#222222";
-        ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
-        ctx.shadowBlur = 2;
-        ctx.shadowOffsetX = 2;
-        ctx.shadowOffsetY = 2;
-        ctx.fillText(this.money, mx, my + 1);
-        initShadow(ctx);
-    }
+//         // draw money
+//         ctx.font = `bold ${nameBoxSize * 0.5}px Gowun Dodum`;
+//         ctx.fillStyle = "#222222";
+//         ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
+//         ctx.shadowBlur = 2;
+//         ctx.shadowOffsetX = 2;
+//         ctx.shadowOffsetY = 2;
+//         ctx.fillText(this.money, mx, my + 1);
+//         initShadow(ctx);
+//     }
 
-    resize(app) {
-        this.distance = getDistance(app);
+//     resize(app) {
+//         this.distance = getDistance(app);
 
-        this.x1 = app.coords[this.index1]["x"] * this.distance;
-        this.y1 = app.coords[this.index1]["y"] * this.distance;
-        this.x2 = app.coords[this.index2]["x"] * this.distance;
-        this.y2 = app.coords[this.index2]["y"] * this.distance;
+//         this.x1 = app.coords[this.index1]["x"] * this.distance;
+//         this.y1 = app.coords[this.index1]["y"] * this.distance;
+//         this.x2 = app.coords[this.index2]["x"] * this.distance;
+//         this.y2 = app.coords[this.index2]["y"] * this.distance;
 
-        this.angle =
-            -Math.atan2(this.x2 - this.x1, this.y2 - this.y1) + Math.PI * 0.5;
-        this.size = Math.min(this.distance * 0.1 * (nameBoxSize / 30), 32);
-        this.height = this.size * 0.5;
+//         this.angle =
+//             -Math.atan2(this.x2 - this.x1, this.y2 - this.y1) + Math.PI * 0.5;
+//         this.size = Math.min(this.distance * 0.1 * (nameBoxSize / 30), 32);
+//         this.height = this.size * 0.5;
 
-        // re-calculate coordinate of index-2 (considering with nameBoxSize)
-        let length = Math.sqrt(
-            Math.pow(this.x2 - this.x1, 2) + Math.pow(this.y2 - this.y1, 2)
-        );
-        let ratio = 1 - nameBoxSize / length;
-        this.x2arrow = lerp(this.x1, this.x2, ratio);
-        this.y2arrow = lerp(this.y1, this.y2, ratio);
-        ratio = 1 - (nameBoxSize + this.size) / length;
-        this.x2line = lerp(this.x1, this.x2, ratio);
-        this.y2line = lerp(this.y1, this.y2, ratio);
+//         // re-calculate coordinate of index-2 (considering with nameBoxSize)
+//         let length = Math.sqrt(
+//             Math.pow(this.x2 - this.x1, 2) + Math.pow(this.y2 - this.y1, 2)
+//         );
+//         let ratio = 1 - nameBoxSize / length;
+//         this.x2arrow = lerp(this.x1, this.x2, ratio);
+//         this.y2arrow = lerp(this.y1, this.y2, ratio);
+//         ratio = 1 - (nameBoxSize + this.size) / length;
+//         this.x2line = lerp(this.x1, this.x2, ratio);
+//         this.y2line = lerp(this.y1, this.y2, ratio);
 
-        this.cx = app.canvas.width / 2;
-        this.cy = app.canvas.height / 2;
-    }
+//         this.cx = app.canvas.width / 2;
+//         this.cy = app.canvas.height / 2;
+//     }
 
-    setColor(app) {
-        this.color1 = this.app.colors[this.index1];
-        this.color2 = this.app.colors[this.index2];
-    }
-}
+//     setColor(app) {
+//         this.color1 = this.app.colors[this.index1];
+//         this.color2 = this.app.colors[this.index2];
+//     }
+// }
 
-class NameBox {
-    constructor(x, y, radius, name, color, app, index) {
-        this.radius = radius;
-        this.x = x;
-        this.y = y;
-        this.name = name;
-        this.color = color;
-        this.index = index;
+// class NameBox {
+//     constructor(x, y, radius, name, color, app, index) {
+//         this.radius = radius;
+//         this.x = x;
+//         this.y = y;
+//         this.name = name;
+//         this.color = color;
+//         this.index = index;
 
-        this.distance = 150;
-        this.cx = 0;
-        this.cy = 0;
-        this.resize(app);
-    }
+//         this.distance = 150;
+//         this.cx = 0;
+//         this.cy = 0;
+//         this.resize(app);
+//     }
 
-    draw(ctx) {
-        var x = this.getX();
-        var y = this.getY();
+//     draw(ctx) {
+//         var x = this.getX();
+//         var y = this.getY();
 
-        // draw circle
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(x, y, this.radius, 0, 2 * Math.PI);
-        ctx.fill();
+//         // draw circle
+//         ctx.fillStyle = this.color;
+//         ctx.beginPath();
+//         ctx.arc(x, y, this.radius, 0, 2 * Math.PI);
+//         ctx.fill();
 
-        // draw name
-        var len = this.name.length;
-        var col = len == 4 ? 2 : 3;
-        var raw = Math.floor((len + 2) / 3);
-        var lines = splitText(this.name, col);
-        var size = (nameBoxSize * 1.5) / lines[0].length;
-        var sizeY = size * (raw - 1);
-        for (var i = 0; i < lines.length; i++) {
-            ctx.font = `${size}px Gowun Dodum`;
-            ctx.textBaseline = "middle";
-            ctx.fillStyle = "#ffffff";
-            ctx.textAlign = "center";
+//         // draw name
+//         var len = this.name.length;
+//         var col = len == 4 ? 2 : 3;
+//         var raw = Math.floor((len + 2) / 3);
+//         var lines = splitText(this.name, col);
+//         var size = (nameBoxSize * 1.5) / lines[0].length;
+//         var sizeY = size * (raw - 1);
+//         for (var i = 0; i < lines.length; i++) {
+//             ctx.font = `${size}px Gowun Dodum`;
+//             ctx.textBaseline = "middle";
+//             ctx.fillStyle = "#ffffff";
+//             ctx.textAlign = "center";
 
-            var oy = i * size;
-            oy -= sizeY / 2;
-            ctx.fillText(lines[i], x, y + oy);
-        }
-    }
+//             var oy = i * size;
+//             oy -= sizeY / 2;
+//             ctx.fillText(lines[i], x, y + oy);
+//         }
+//     }
 
-    resize(app) {
-        this.distance = getDistance(app);
+//     resize(app) {
+//         this.distance = getDistance(app);
 
-        this.x = app.coords[this.index]["x"] * this.distance;
-        this.y = app.coords[this.index]["y"] * this.distance;
+//         this.x = app.coords[this.index]["x"] * this.distance;
+//         this.y = app.coords[this.index]["y"] * this.distance;
 
-        this.cx = app.canvas.width / 2;
-        this.cy = app.canvas.height / 2;
+//         this.cx = app.canvas.width / 2;
+//         this.cy = app.canvas.height / 2;
 
-        this.radius = nameBoxSize;
-    }
+//         this.radius = nameBoxSize;
+//     }
 
-    getX() {
-        return this.x + this.cx;
-    }
+//     getX() {
+//         return this.x + this.cx;
+//     }
 
-    getY() {
-        return this.y + this.cy;
-    }
-}
+//     getY() {
+//         return this.y + this.cy;
+//     }
+// }
 
-function getDistance(app) {
-    return Math.min(100 + app.stageWidth * 0.2, app.stageHeight * 0.4);
-}
+// function getDistance(app) {
+//     return Math.min(100 + app.stageWidth * 0.2, app.stageHeight * 0.4);
+// }
 
-// Utilities
-function create2DArray(rows, columns) {
-    var arr = new Array(rows);
-    for (var i = 0; i < rows; i++) {
-        arr[i] = new Array(columns);
-    }
-    for (var row = 0; row < rows; row++) {
-        for (var col = 0; col < columns; col++) {
-            arr[col][row] = 0;
-        }
-    }
-    return arr;
-}
+// // Utilities
+// function create2DArray(rows, columns) {
+//     var arr = new Array(rows);
+//     for (var i = 0; i < rows; i++) {
+//         arr[i] = new Array(columns);
+//     }
+//     for (var row = 0; row < rows; row++) {
+//         for (var col = 0; col < columns; col++) {
+//             arr[col][row] = 0;
+//         }
+//     }
+//     return arr;
+// }
 
-function ToFixedNumber(number) {
-    return Number(number.toFixed(3));
-}
+// function ToFixedNumber(number) {
+//     return Number(number.toFixed(3));
+// }
 
-String.prototype.format = function () {
-    var formatted = this,
-        i = 0;
-    var newArguments = [];
-    for (let i = 0; i < arguments.length; i++) {
-        let arg = arguments[i];
-        if (Array.isArray(arg)) newArguments.push(...arg);
-        else newArguments.push(arg);
-    }
+// String.prototype.format = function () {
+//     var formatted = this,
+//         i = 0;
+//     var newArguments = [];
+//     for (let i = 0; i < arguments.length; i++) {
+//         let arg = arguments[i];
+//         if (Array.isArray(arg)) newArguments.push(...arg);
+//         else newArguments.push(arg);
+//     }
 
-    while (/%s/.test(formatted))
-        formatted = formatted.replace("%s", newArguments[i++]);
-    return formatted;
-};
+//     while (/%s/.test(formatted))
+//         formatted = formatted.replace("%s", newArguments[i++]);
+//     return formatted;
+// };
 
-function lerp(a, b, t) {
-    return (1 - t) * a + t * b;
-}
+// function lerp(a, b, t) {
+//     return (1 - t) * a + t * b;
+// }
 
-function initShadow(ctx) {
-    ctx.shadowColor = "white";
-    ctx.shadowBlur = 0;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
-}
+// function initShadow(ctx) {
+//     ctx.shadowColor = "white";
+//     ctx.shadowBlur = 0;
+//     ctx.shadowOffsetX = 0;
+//     ctx.shadowOffsetY = 0;
+// }
 
-function splitText(str, len) {
-    let lines = [];
-    for (let i = 0; i < str.length; i += len) {
-        lines.push(str.substr(i, len));
-    }
-    return lines;
-}
+// function splitText(str, len) {
+//     let lines = [];
+//     for (let i = 0; i < str.length; i += len) {
+//         lines.push(str.substr(i, len));
+//     }
+//     return lines;
+// }

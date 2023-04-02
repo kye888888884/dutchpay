@@ -198,15 +198,16 @@ class moneyLine {
         ctx.rotate(angle);
 
         // draw money
-        ctx.font = `bold ${nameBoxSize * 0.5}px Gowun Dodum`;
-        ctx.strokeStyle = this.colorCenter;
+        ctx.font = `bold ${nameBoxSize * 0.7}px Gowun Dodum`;
+        // ctx.strokeStyle = this.colorCenter;
+        ctx.strokeStyle = "#fff";
         ctx.setLineDash([]);
-        ctx.fillStyle = this.isMoneyDark ? "#fff" : "#222";
-        ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
-        ctx.shadowBlur = 2;
+        ctx.fillStyle = this.colorCenter;
+        ctx.strokeText(this.money, 0, 0);
+        ctx.shadowColor = "rgba(0, 0, 0, 0.1)";
+        ctx.shadowBlur = 3;
         ctx.shadowOffsetX = 2;
         ctx.shadowOffsetY = 2;
-        ctx.strokeText(this.money, 0, 0);
         ctx.fillText(this.money, 0, 0);
         initShadow(ctx);
 

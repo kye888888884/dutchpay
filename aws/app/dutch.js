@@ -128,7 +128,7 @@ function drawResult(arrName, moneyData) {
     app.colors = [];
     app.coords = [];
     for (let i = 0; i < moneyData.n; i++) {
-        let colorH = (i / moneyData.n) * 255 + 25;
+        let colorH = ((i * 1.2) / moneyData.n) * 255 + 25;
         app.colors.push(`hsl(${Math.floor(colorH)}, 80%, 40%)`);
 
         let x = Math.cos(((-i / moneyData.n) * 2 - 0.5) * Math.PI);
